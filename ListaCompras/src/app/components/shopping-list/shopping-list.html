@@ -1,0 +1,40 @@
+<div class="shopping-container">
+    <header>
+        <h1>🛒 Lista Inteligente</h1>
+        <p>Itens pesados primeiro, ordenados por corredor</p>
+    </header>
+
+    <form (submit)="addNewItem(); $event.preventDefault()" class="input-section">
+        <input type="text" [ngModel]="newItemName()" (ngModelChange)="newItemName.set($event)" name="itemName"
+            placeholder="Ex: Arroz, Ovos, Detergente..." autocomplete="off" />
+        <button type="submit" [disabled]="!newItemName().trim()">Adicionar</button>
+    </form>
+
+    <div class="list-section">
+        @for (group of groupedList(); track group.groupName) {
+        <div class="category-group">
+            <h2>{{ group.groupName }}</h2>
+
+            <ul class="items-list">
+                @for (item of group.items; track item.id) {
+                <li [class.checked]="item.checked">
+                    <label class="item-label">
+                        <input type="checkbox" [checked]="item.checked" (change)="toggle(item.id)" />
+                        <span class="item-name">{{ item.name }}</span>
+                        <!-- A badge agora mostra o Corredor -->
+                        <span class="item-category-badge">
+                            📍 {{ item.category }}
+                        </span>
+                    </label>
+                    <button class="delete-btn" (click)="remove(item.id)">✕</button>
+                </li>
+                }
+            </ul>
+        </div>
+        } @empty {
+        <div class="empty-state">
+            Sua lista está vazia. Adicione itens acima!
+        </div>
+        }
+    </div>
+</div>
