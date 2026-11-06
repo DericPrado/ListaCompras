@@ -28,7 +28,18 @@ export class ShoppingService {
         'alface': { category: 'Hortifruti', weightClass: 1 },
         'ovo': { category: 'Hortifruti', weightClass: 1 },
         'pão': { category: 'Padaria', weightClass: 1 },
-        'açúcar': { category: 'Mercearia', weightClass: 3 }
+        'açúcar': { category: 'Mercearia', weightClass: 3 },
+        'creme de leite': {category: 'Doces e Coberturas', weightClass: 1},
+        'leite condensado': {category: 'Doces e coberturas', weightClass: 1},
+        'leite moça': {category: 'Doces e coberturas', weightClass: 1},
+        'doce de leite': {category: 'Doces e coberturas', weightClass: 1},
+        'paçoca': {category: 'Doces e coberturas', weightClass: 1},
+        'nutela': {category: 'Doces e coberturas', weightClass: 1},
+        'chocolate': {category: 'Doces e coberturas', weightClass: 1},
+        'Água sanitaria': {category: 'Limpeza', weightClass: 3},
+        'qboa': {category: 'Limpeza', weightClass: 3},
+        'bucha': {category: 'Limpeza', weightClass: 1},
+        'saco de lixo': {category: 'Limpeza', weightClass: 1}
     };
 
     public groupedAndSortedList = computed<ItemGroup[]>(() => {
